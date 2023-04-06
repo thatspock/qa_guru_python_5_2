@@ -9,7 +9,6 @@ def test_google_selene_search(open_browser):
 
 def test_google_wrong_results(open_browser):
     browser.element('[name="q"]').should(be.blank).type('fwjfjdsjfjsdkjfsdfl3939').press_enter()
-
     result_text = browser.element('[id="result-stats"]').get(query.text)
 
     try:
