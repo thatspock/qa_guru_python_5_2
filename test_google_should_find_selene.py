@@ -1,4 +1,4 @@
-from selene import browser
+from selene import browser, query
 from selene import be, have
 
 
@@ -8,11 +8,13 @@ def test_google_selene_search(open_browser):
 
 
 def test_google_wrong_results(open_browser):
-    searching_text = 'config.driver.maximize_window()'
-    browser.element('[name="q"]').should(be.blank).type('selene maximize window').press_enter()
+    browser.element('[name="q"]').should(be.blank).type('fwjfjdsjfjsdkjfsdfl3939').press_enter()
+
+    result_text = browser.element('[id="result-stats"]').get(query.text)
 
     try:
-        assert browser.element('[id="search"]').should(have.text(searching_text))
+        assert browser.element('[id="result-stats"]').should(have.text('About 0 results'))
+        print(f"\nYou've got a message: {result_text}")
 
     except:
-        print('\nNo results')
+        print("\nSomething went wrong. Probably you've got more than 0 result")
