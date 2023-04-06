@@ -17,4 +17,4 @@ def test_google_wrong_results(open_browser):
         print(f"\nYou've got a message: {result_text}")
 
     except:
-        print("\nSomething went wrong. Probably you've got more than 0 result")
+        print("\nSomething went wrong. Probably you've expected more than 0 results")
