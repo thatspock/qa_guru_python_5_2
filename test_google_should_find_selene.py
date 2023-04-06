@@ -13,7 +13,8 @@ def test_google_wrong_results(open_browser):
 
     try:
         assert browser.element('[id="result-stats"]').should(have.text('About 0 results'))
-        print(f"\nYou've got a message: {result_text}")
+        print('\nNo results')
+        print(f"You've got a message: {result_text}")
 
     except:
         print("\nSomething went wrong. Probably you've expected more than 0 results")
