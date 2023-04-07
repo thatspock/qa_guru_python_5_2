@@ -11,10 +11,7 @@ def test_google_wrong_results(open_browser):
     browser.element('[name="q"]').should(be.blank).type('fwjfjdsjfjsdkjfsdfl3939').press_enter()
     result_text = browser.element('[id="result-stats"]').get(query.text)
 
-    try:
-        assert browser.element('[id="result-stats"]').should(have.text('About 0 results'))
-        print('\nNo results')
-        print(f"You've got a message: {result_text}")
+    browser.element('[id="result-stats"]').should(have.text('About 0 results'))
+    print('\nNo results')
+    print(f"You've got a message: {result_text}")
 
-    except:
-        print("\nSomething went wrong. Probably you've expected more than 0 results")
